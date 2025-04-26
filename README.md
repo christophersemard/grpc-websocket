@@ -130,24 +130,61 @@ On ne mesure pas l'usage CPU ou mémoire du serveur pendant les tests.
 
 ## Résultats du benchmark
 
-Chaque scénario a été testé pendant 10 secondes après stabilisation du nombre de poissons.
-
 | Scénario | Protocole | Moyenne | Médiane | P10 | P90 | Écart-type | Min | Max |
 |:---|:---|---:|---:|---:|---:|---:|---:|---:|
-| 100 poissons / 100ms | WebSocket | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">0 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">0 ms</span> | <span style="color:green;font-weight:bold;">0 ms</span> | <span style="color:green;font-weight:bold;">2 ms</span> |
-| | gRPC | <span style="color:green;font-weight:bold;">5 ms</span> | <span style="color:green;font-weight:bold;">5 ms</span> | <span style="color:green;font-weight:bold;">4 ms</span> | <span style="color:green;font-weight:bold;">6 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">2 ms</span> | <span style="color:green;font-weight:bold;">10 ms</span> |
-| 200 poissons / 50ms | WebSocket | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:orange;font-weight:bold;">10 ms</span> | <span style="color:green;font-weight:bold;">0 ms</span> | <span style="color:red;font-weight:bold;">87 ms</span> |
-| | gRPC | <span style="color:green;font-weight:bold;">8 ms</span> | <span style="color:green;font-weight:bold;">6 ms</span> | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:orange;font-weight:bold;">16 ms</span> | <span style="color:green;font-weight:bold;">6 ms</span> | <span style="color:green;font-weight:bold;">2 ms</span> | <span style="color:orange;font-weight:bold;">45 ms</span> |
-| 500 poissons / 30ms | WebSocket | <span style="color:green;font-weight:bold;">10 ms</span> | <span style="color:green;font-weight:bold;">10 ms</span> | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:orange;font-weight:bold;">18 ms</span> | <span style="color:green;font-weight:bold;">6 ms</span> | <span style="color:green;font-weight:bold;">1 ms</span> | <span style="color:green;font-weight:bold;">31 ms</span> |
-| | gRPC | <span style="color:green;font-weight:bold;">13 ms</span> | <span style="color:green;font-weight:bold;">11 ms</span> | <span style="color:green;font-weight:bold;">5 ms</span> | <span style="color:orange;font-weight:bold;">23 ms</span> | <span style="color:green;font-weight:bold;">7 ms</span> | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:green;font-weight:bold;">31 ms</span> |
-| 1000 poissons / 20ms | WebSocket | <span style="color:orange;font-weight:bold;">70 ms</span> | <span style="color:orange;font-weight:bold;">68 ms</span> | <span style="color:green;font-weight:bold;">33 ms</span> | <span style="color:orange;font-weight:bold;">110 ms</span> | <span style="color:orange;font-weight:bold;">27 ms</span> | <span style="color:green;font-weight:bold;">2 ms</span> | <span style="color:orange;font-weight:bold;">140 ms</span> |
-| | gRPC | <span style="color:orange;font-weight:bold;">27 ms</span> | <span style="color:orange;font-weight:bold;">29 ms</span> | <span style="color:green;font-weight:bold;">9 ms</span> | <span style="color:orange;font-weight:bold;">39 ms</span> | <span style="color:green;font-weight:bold;">11 ms</span> | <span style="color:green;font-weight:bold;">3 ms</span> | <span style="color:green;font-weight:bold;">49 ms</span> |
-| 2500 poissons / 20ms | WebSocket | <span style="color:red;font-weight:bold;">368 ms</span> | <span style="color:orange;font-weight:bold;">86 ms</span> | <span style="color:green;font-weight:bold;">50 ms</span> | <span style="color:red;font-weight:bold;">1528 ms</span> | <span style="color:red;font-weight:bold;">649 ms</span> | <span style="color:green;font-weight:bold;">29 ms</span> | <span style="color:red;font-weight:bold;">2372 ms</span> |
-| | gRPC | <span style="color:orange;font-weight:bold;">41 ms</span> | <span style="color:orange;font-weight:bold;">41 ms</span> | <span style="color:green;font-weight:bold;">15 ms</span> | <span style="color:orange;font-weight:bold;">68 ms</span> | <span style="color:orange;font-weight:bold;">19 ms</span> | <span style="color:green;font-weight:bold;">6 ms</span> | <span style="color:orange;font-weight:bold;">79 ms</span> |
-| 4000 poissons / 20ms | WebSocket | <span style="color:red;font-weight:bold;">10998 ms</span> | <span style="color:red;font-weight:bold;">10974 ms</span> | <span style="color:red;font-weight:bold;">4727 ms</span> | <span style="color:red;font-weight:bold;">17142 ms</span> | <span style="color:red;font-weight:bold;">4652 ms</span> | <span style="color:red;font-weight:bold;">2749 ms</span> | <span style="color:red;font-weight:bold;">19183 ms</span> |
-| | gRPC | <span style="color:red;font-weight:bold;">3127 ms</span> | <span style="color:red;font-weight:bold;">3118 ms</span> | <span style="color:red;font-weight:bold;">2787 ms</span> | <span style="color:red;font-weight:bold;">3501 ms</span> | <span style="color:orange;font-weight:bold;">267 ms</span> | <span style="color:red;font-weight:bold;">2601 ms</span> | <span style="color:red;font-weight:bold;">3340 ms</span> |
-| 5000 poissons / 20ms | WebSocket | <span style="color:red;font-weight:bold;">26674 ms</span> | <span style="color:red;font-weight:bold;">26010 ms</span> | <span style="color:red;font-weight:bold;">15473 ms</span> | <span style="color:red;font-weight:bold;">39317 ms</span> | <span style="color:red;font-weight:bold;">8836 ms</span> | <span style="color:red;font-weight:bold;">13560 ms</span> | <span style="color:red;font-weight:bold;">41964 ms</span> |
-| | gRPC | <span style="color:red;font-weight:bold;">3332 ms</span> | <span style="color:red;font-weight:bold;">3294 ms</span> | <span style="color:red;font-weight:bold;">3110 ms</span> | <span style="color:red;font-weight:bold;">3615 ms</span> | <span style="color:orange;font-weight:bold;">185 ms</span> | <span style="color:red;font-weight:bold;">3105 ms</span> | <span style="color:red;font-weight:bold;">3782 ms</span> |
+| 100 poissons / 100ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:green;">1 ms</span> | 1 ms | 1 ms | 2 ms | 0 ms | 1 ms | 2 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">2 ms</span> | 2 ms | 1 ms | 2 ms | 2 ms | 1 ms | 9 ms |
+| 200 poissons / 50ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:green;">1 ms</span> | 1 ms | 1 ms | 2 ms | 1 ms | 1 ms | 4 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">3 ms</span> | 2 ms | 1 ms | 5 ms | 2 ms | 1 ms | 11 ms |
+| 500 poissons / 30ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:green;">4 ms</span> | 2 ms | 1 ms | 9 ms | 3 ms | 1 ms | 12 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">6 ms</span> | 5 ms | 3 ms | 11 ms | 3 ms | 3 ms | 17 ms |
+| 1000 poissons / 20ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:orange;">84 ms</span> | 81 ms | 67 ms | 104 ms | 16 ms | 21 ms | 108 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">18 ms</span> | 17 ms | 10 ms | 28 ms | 7 ms | 5 ms | 35 ms |
+| 2500 poissons / 20ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:orange;">429 ms</span> | 102 ms | 71 ms | 1680 ms | 692 ms | 52 ms | 1857 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">36 ms</span> | 35 ms | 15 ms | 55 ms | 16 ms | 10 ms | 79 ms |
+| 4000 poissons / 20ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:red;">8752 ms</span> | 8736 ms | 8516 ms | 9038 ms | 190 ms | 8403 ms | 8790 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:green;">23 ms</span> | 21 ms | 17 ms | 31 ms | 7 ms | 13 ms | 35 ms |
+| 5000 poissons / 20ms | <span style="color:#3b82f6;font-weight:bold;">WebSocket</span> | <span style="color:red;">21388 ms</span> | 20478 ms | 20372 ms | 24824 ms | 1929 ms | 20343 ms | 26495 ms |
+| | <span style="color:#10b981;font-weight:bold;">gRPC</span> | <span style="color:orange;">99 ms</span> | 100 ms | 64 ms | 135 ms | 26 ms | 52 ms | 158 ms |
+
+## Ancien système de benchmark
+
+Avant de passer au benchmark en frontend directement connecté, j'avais mis en place un **système de benchmark séparé** dans le dossier `anciens-benchmarks/`.
+
+Ce système :
+- Se connectait **directement** au serveur via WebSocket ou gRPC.
+- Simulait un ou plusieurs clients pour mesurer :
+  - La latence moyenne,
+  - Le nombre de messages reçus,
+  - Le taux de perte de messages,
+  - Le comportement sous charge.
+
+Cependant, ce benchmark avait plusieurs **limitations** :
+- **Pas de prise en compte** de l'affichage frontend (qui impacte les performances en réalité).
+- **Pas représentatif** de l'expérience utilisateur réelle dans un navigateur.
+- **Ouverture d'un flux grpc pour chaque client**, ce qui n'est pas le cas en frontend puisque la partie serveur crée un seul flux puis l'envoie à tous les clients.
+
+
+# Analyse des résultats
+
+Les résultats montrent clairement que les deux protocoles fonctionnent très bien tant qu'on reste en dessous de **500 poissons**. La latence reste très basse (entre **1 et 11 ms**), et **stable**.  À ce niveau et cette charge, les deux protocoles semblent **assez identiques**.
+
+Mais dès qu'on monte au-dessus de **500 poissons** on voit que le **WebSocket devient beaucoup plus lent**, beaucoup **moins stable**, et à partir de **2500 poissons** il n'est carrément **plus comparable** au **gRPC** qui reste **très stable**.
+
+On voit donc que si on compare les deux protocoles avec **un seul client** pour chaque, **il n'y a pas photo** entre le WebSocket et le gRPC, le dernier étant bien plus efficace.
+
+---
+
+Mes anciens benchmarks avec plusieurs clients connectés m'ont quand même fait observer des choses intéressantes également :
+
+- Avec **gRPC**, **tous les clients arrivent à se connecter** et **reçoivent leurs messages**. Mais la **latence augmente**, jusqu’à **plusieurs secondes** pour certains clients. Le souci est qu'ouvrir un flux gRPC par client demande des infrastructures bien plus complexes et efficaces, ce n'est pas viable d'ouvrir 500 flux gRPC sur un petit serveur Node.
+
+- Avec **WebSocket**, un autre problème apparaît, certaines **connexions sont carrément refusées**. Cependant c'est beaucoup moins lourd d'ouvrir une connexion WebSocket qu'un nouveau flux gRPC.
+
+---
+
+Dès qu’on pousse trop loin, on atteint les **limites de mon implémentation actuelle**,  on peut quand même penser que **gRPC est un peu plus fiable et plus robuste** et supporte mieux une charge lourde sur un seul client, mais pour connecter beaucoup de clients il faudrait une implémentation bien plus optimisée.
+
 
 # Avantages et inconvénients
 
@@ -181,7 +218,7 @@ Chaque scénario a été testé pendant 10 secondes après stabilisation du nomb
 **❌ Inconvénients :**
 - **Pas utilisable directement dans les navigateurs** avec NodeJS, nécesite un serveur ou un proxy qui récupère les données avant de les envoyer au client autrement (SSE ou WebSocket). Ajoute une **latence supplémentaire** à cause de cette passerelle.
 - Mise en place et debug **plus complexes** qu’un WebSocket simple au départ.
-- 
+- **Plus compliqué pour l'applicatif d'ouvrir beaucoup de flux gRPC** que beaucoup de flux Websocket
 
 **💡 Cas d’usage :**
 - **Communication entre microservices**, c'est ce que j'utilise dans mon projet de fin d'année avec une Gateway exposée en HTTP et mes microservices derrière qui communiquent en gRPC avec la Gateway.
@@ -213,4 +250,4 @@ Ce projet permet de tester les **forces et limites réelles** de ces technos, et
 
 **En résumé :**  
 - **WebSocket** brille par sa **simplicité** pour le **temps réel léger** côté navigateur.  
-- **gRPC** s'impose par sa **rigueur** et sa **résilience** dans des architectures **plus exigeantes**.
+- **gRPC** par sa **rigueur** et sa **résilience** dans des architectures **plus exigeantes**.
