@@ -185,7 +185,7 @@ Chaque scénario a été testé pendant 10 secondes après stabilisation du nomb
 - Mise en place de plusieurs serveurs.
 - **Séparation des serveurs** WebSocket et gRPC dans des processus ou containers distincts pour éviter qu'ils ne se pénalisent mutuellement.
 - Ajout d’un **monitoring** (ex : Grafana) pour connaitre l'utilisation de ressources de l'application.
-- **Tests avec charge réseau simulée** (latence artificielle, pertes de paquets) pour évaluer la robustesse de chaque protocole dans des conditions dégradées.
+- **Tests avec charge réseau simulée** (latence artificielle, pertes de paquets) pour évaluer la robustesse de chaque protocole dans des conditions dégradées comme on avait vu en cours avec les logiciels de chaos engineering
 - **Optimiser les données** et leur type envoyées
 
 ---
