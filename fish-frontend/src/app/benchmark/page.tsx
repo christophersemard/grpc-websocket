@@ -22,7 +22,7 @@ const scenarios = [
     { label: "1000 poissons / 20ms", fishCount: 1000, intervalMs: 20 },
     { label: "2500 poissons / 20ms", fishCount: 2500, intervalMs: 20 },
     { label: "4000 poissons / 20ms", fishCount: 4000, intervalMs: 20 },
-    { label: "5000 poissons / 20ms", fishCount: 5000, intervalMs: 50 },
+    { label: "5000 poissons / 50ms", fishCount: 5000, intervalMs: 50 },
 ];
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
