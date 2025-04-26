@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package fish;
+
+service FishService {
+  // Le client s'abonne au flux partagé de batchs de poissons
+  rpc SubscribeToFish (Empty) returns (stream FishBatch);
+
+  // Le client peut modifier la configuration du générateur
+  rpc UpdateConfig (FishConfig) returns (ConfigResponse);
+}
+
+// Un seul poisson
+message Fish {
+  string id = 1;
+  float x = 2;
+  float y = 3;
+  float vx = 4;
+  float vy = 5;
+}
+
+// Un batch de poissons
+message FishBatch {
+  int64 createdAt = 1;
+  repeated Fish fishes = 2;
+}
+
+// Configuration dynamique
+message FishConfig {
+  uint32 fishCount = 1;
+  uint32 intervalMs = 2;
+}
+
+// Réponse à la mise à jour de config
+message ConfigResponse {
+  bool ok = 1;
+}
+
+message Empty {}

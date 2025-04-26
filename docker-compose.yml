@@ -1,0 +1,17 @@
+services:
+  server:
+    build:
+      context: ./fish-server
+    ports:
+      - "3001:3001"   # WebSocket
+      - "50051:50051" # gRPC
+
+  frontend:
+    build:
+      context: ./fish-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - server
